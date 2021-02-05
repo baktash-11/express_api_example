@@ -8,6 +8,11 @@ const logger = require('./middleware/logger');
 const members = require('./Members');
 const app = express();
 
+
+
+
+
+/*
 //get all memebers
 app.get('/api/members', function(req, res){
     res.json(members);
@@ -26,7 +31,7 @@ app.get('/api/members/:id', function(req, res){
     //res.send(req.params.id);
 });
 
-
+*/
 
 //init Middleware
 //app.use(logger);
@@ -45,6 +50,6 @@ app.get('/', function(req, res){
 
 //set a static foloder
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/', require('./routes/api/members'));
 const PORT = process.env.PORT|| 5000;
 app.listen(PORT, ()=>console.log(`Server is started on port http://localhost:${PORT}`));
