@@ -32,13 +32,10 @@ app.get('/api/members/:id', function(req, res){
 });
 
 */
-
 //init Middleware
 //app.use(logger);
 
 /*
-
-
 app.get('/', function(req, res){
     
     //res.send(`<h1>Hello World From Express JS!</h1>`);
@@ -48,8 +45,13 @@ app.get('/', function(req, res){
 });
 */
 
+//body parser Middleware
+app.use(express.json());
+//form submationn
+app.use(express.urlencoded({extended:false}));
 //set a static foloder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', require('./routes/api/members'));
+//members API route 
+app.use('/api/members', require('./routes/api/members'));
 const PORT = process.env.PORT|| 5000;
 app.listen(PORT, ()=>console.log(`Server is started on port http://localhost:${PORT}`));
