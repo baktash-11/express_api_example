@@ -1,0 +1,54 @@
+
+//BASIC SERVER SYNTAX
+const express =require('express');
+ 
+ // init express
+ const app = express();
+
+ //Create endpint or route handlers
+ app.get('/', function(req, res){
+     res.send('Hello World!');
+
+ });
+
+
+ //Listen on a port
+ app.listen(3000);
+
+ //=================================================================
+//BASIC ROUTE HANDLING 
+//handling rquests/routes is simple
+//app.get(), app.post(), app.put(), app.delete(), etc 
+//Access to params, query strings, url paths etc
+//Express has a router so we can store routes in separate files and export 
+//we can parse incoming data with the body parser 
+
+app.get('/', function(req, res){
+    //Fetch from database
+    //load pages
+    //return JSON
+    //Full access to request and response 
+
+});
+//req and res are the most iportant object 
+
+//=====================================================================
+//Middleware functions are functions that have access to the request and 
+//response object. Express has built in middleware but middleware also comes
+//from 3rd party packages as well as custom middleware
+//Excute any code
+//Make changes to request/ responce objects
+//Call next middleware in the stack
+
+//========================================================================
+
+
+app.get('/', function(req, res){
+    
+    //res.send(`<h1>Hello World From Express JS!</h1>`);
+    //load html files
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    //we could send file, JSON, 
+});
+
+//express comes with functionality to make a folder static static files(css, images, text and etc)
